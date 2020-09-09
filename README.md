@@ -7,5 +7,5 @@ for me i had problems using ansible galay collections.
 
 - Task found [here](roles)
 
-- ansible site found [here](site.yml)
+- master playbook found here [here](site.yml)
 
