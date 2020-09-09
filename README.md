@@ -1,11 +1,11 @@
-# Toolbox playbook
+# pfsense ansible playbook 
 
-Playbok for configuring new server and new sites
+Here is the upstream [ansible-pfsense](https://github.com/opoplawski/ansible-pfsense) the only change is adding tasks so this modules works
+for me i had problems using ansible galay collections.
 
-## Usage
+- Ansible variables ansible found in  [here](group_vars/all)
 
-### New server
-`ansible-playbook -i env/stage server.yml -u root`
+- Task found [here](roles)
 
-### New site
-`ansible-playbook -i env/dev site.yml -u root`
+- ansible site found [here](site.yml)
+
