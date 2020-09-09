@@ -1,0 +1,62 @@
+server {
+    listen       80;
+    listen       [::]:80;
+    server_name  {{ sitename }};
+    root      /var/www/{{ sitename }};
+
+    auth_basic "LDAP user";
+    auth_request /auth-proxy;
+
+    index  index.php;
+
+    access_log            /var/log/nginx/{{ sitename }}/access.log combined;
+    error_log             /var/log/nginx/{{ sitename }}/error.log;
+
+    location / {
+	rewrite ^/$ /web/index.php;
+	try_files $uri $uri/ /web/index.php$is_args$args;
+    }
+
+    location /js {
+	rewrite ^(.*)$ /web/cache/$1 break;
+    }
+    location /css {
+	rewrite ^(.*)$ /web/cache/$1 break;
+    }
+    location /img {
+	rewrite ^(.*)$ /web/cache/$1 break;
+    }
+    location /fonts {
+	rewrite ^(.*)$ /web/cache/$1 break;
+    }
+    location /legacy {
+	try_files $uri $uri/ /web/index.php$is_args$args;
+    }
+
+    location = /auth-proxy {
+	internal;
+
+	proxy_pass http://127.0.0.1:8888/;
+
+	proxy_pass_request_body off;
+	proxy_set_header Content-Length "";
+	proxy_cache auth_cache;
+	proxy_cache_valid 200 10m;
+	proxy_cache_key "$http_authorization$cookie_nginxauth";
+	proxy_set_header X-Ldap-URL      "ldap://ldap.osl.basefarm.net";
+	proxy_set_header X-Ldap-BaseDN   "ou=People,o=basefarm.no,cn=DAM";
+	proxy_set_header X-Ldap-BindDN   "uid=bf-toolbox,ou=People,o=basefarm.no,cn=DAM";
+	proxy_set_header X-Ldap-BindPass "MUTP3Pio";
+	proxy_set_header X-Ldap-Template "(uid=%(username)s)";
+	proxy_set_header X-CookieName "nginxauth";
+	proxy_set_header Cookie nginxauth=$cookie_nginxauth;
+    }
+
+    location ~ \.php$ {
+	include       /etc/nginx/fastcgi.conf;
+
+	fastcgi_pass  unix:/run/php-fpm/{{ sitename }}.sock;
+	fastcgi_param  SCRIPT_FILENAME $document_root$fastcgi_script_name;
+	fastcgi_param REMOTE_USER $remote_user;
+    }
+}

@@ -1,0 +1,118 @@
+---
+  - name: Create NGINX log folder
+    file:
+      dest: "/var/log/nginx/{{ sitename }}/"
+      state: directory
+      owner: nginx
+      group: nginx
+
+  - name: Create webroot
+    file: 
+      dest: "/var/www/{{ sitename }}/"
+      state: directory
+      owner: "{{ username }}"
+      group: nginx
+
+  - name: Install NGINX config
+    template:
+      src: "nginx-site-config.conf.j2"
+      dest: "/etc/nginx/sites-available/{{ sitename }}.conf"
+      owner: root
+      group: root
+
+  - name: Create NGINX config symlink
+    file:
+      src: "/etc/nginx/sites-available/{{ sitename }}.conf"
+      dest: "/etc/nginx/sites-enabled/{{ sitename }}.conf"
+      state: link
+      owner: root
+      group: root
+    notify:
+      - Reload nginx
+
+  - name: Create PHP log folders
+    file:
+      path: /log/php-fpm/{{ sitename }}
+      state: directory
+
+  - name: Install PHP config
+    template:
+      src: "php-www.conf.j2"
+      dest: "/etc/php-fpm.d/{{ sitename }}.conf"
+      owner: root
+      group: root
+    notify:
+      - Restart php
+
+  - name: Git clone
+    git:
+      repo: 'gitlab@repo01.osl.basefarm.net:scriptsdno/Toolbox.git'
+      dest: "/var/www/{{ sitename }}/"
+      # Adde support for prod (check out latest tag)
+      version: develop
+
+  - name: Fix file permissions
+    file:
+      path: "/var/www/{{ sitename }}"
+      state: directory
+      recurse: yes
+      owner: "{{ username }}"
+      group: nginx
+
+  - name: Install composer packages
+    composer:
+      command: install
+      working_dir: "/var/www/{{ sitename }}"
+    become: true
+    become_user: "{{ username }}"
+    environment:
+      http_proxy: "{{ proxy_url }}"
+      https_proxy: "{{ proxy_url }}"
+
+  - name: Install NPM packages
+    npm:
+      path: "/var/www/{{ sitename }}"
+    become: true
+    become_user: "{{ username }}"
+    environment:
+      http_proxy: "{{ proxy_url }}"
+      https_proxy: "{{ proxy_url }}"
+
+  - name: Install bower packages
+    bower:
+      path: "/var/www/{{ sitename }}"
+    environment:
+      http_proxy: "{{ proxy_url }}"
+      https_proxy: "{{ proxy_url }}"
+
+  - name: Install site config
+    template:
+      src: "site-config.php.j2"
+      dest: "/var/www/{{ sitename }}/config/Dev.php"
+      owner: "{{ username }}"
+      group: nginx
+
+  - name: Install site env
+    template:
+      src: "site-env.php.j2"
+      dest: "/var/www/{{ sitename }}/config/_env.php"
+      owner: "{{ username }}"
+      group: nginx
+
+  - name: Fix folder permissions
+    file:
+      path: "/var/www/{{ sitename }}"
+      state: directory
+      recurse: yes
+      owner: "{{ username }}"
+      group: nginx
+      mode: 2755
+
+  - name: Fix file permissions
+    file:
+      path: "/var/www/{{ sitename }}"
+      state: file 
+      recurse: yes
+      owner: "{{ username }}"
+      group: nginx
+      mode: 0775

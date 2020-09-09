@@ -1,0 +1,224 @@
+<?php
+namespace Basefarm\Toolbox\_Config;
+
+use Aura\Di\Config;
+use Aura\Di\Container;
+use Monolog\Logger;
+
+class Dev extends Config
+{
+
+    public function define(Container $di)
+    {
+        $this->defineCore($di);
+        $this->defineSMSTools($di);
+    }
+
+    protected function defineCore(Container $di)
+    {
+        ini_set('error_reporting', E_ALL);
+        ini_set('display_errors', true);
+
+        $di->params['Monolog\Handler\StreamHandler'] = [
+            'level' => Logger::DEBUG
+        ];
+
+        $di->params['Basefarm\Toolbox\Services\Alerta'] = [
+            # Dev
+            'url' => 'https://alerta.lab.basefarm.net',
+            'apikey' => "",
+            'http_options' => [
+                'keepalive' => true,
+                'sslcafile' => '/etc/ssl/certs/ca-bundle.crt',
+            ]
+        ];
+
+        $di->params['Marval\MarvalAPI'] = [
+            'baseurl' => 'https://marval-stage.basefarm.com/',
+            'username' => 'bf-toolbox',
+            'password' => ''
+            
+        ];
+
+        $di->params['Basefarm\Toolbox\Assets\AssetsManager'] += [
+            'debug' => true
+        ];
+
+        //$di->params['Basefarm\Toolbox\Services\CustomerPortal'] = [
+        //    'enabled' => false,
+        //    'messagequeue' => $di->lazyGet('MessageQueue'),
+        //    'url' => 'https://customerportal-stage.basefarm.com/bf-notify.php',
+        //    'username' => 'thmarth',
+        //    'password' => '',
+        //    'http_options' => [
+        //        'keepalive' => true,
+        //        'sslcapath' => '/etc/ssl/certs'
+        //    ]
+        //];
+
+        $di->params['Basefarm\Toolbox\Services\CiAll'] = [
+            'enabled' => true,
+            'servername' => 'bin-p-sqlc01w01.ad.basefarm.com',
+            'username' => 'bf-toolbox',
+            'password' => '',
+            'database' => 'CustomerLifetimeTool'
+                ];
+        $di->params['Basefarm\Toolbox\Services\DAM'] = [
+            'server' => 'ldap://ldap.osl.basefarm.net',
+            'tls' => true,
+            'bind_dn' => 'uid=bf-toolbox,ou=People,o=basefarm.no,cn=DAM',
+            'bind_pw' => ''
+        ];
+
+        //$di->params['Basefarm\Toolbox\Services\Email'] = [
+        //    'enabled' => false,
+        //    'messagequeue' => $di->lazyGet('MessageQueue'),
+        //    'from' => 'support@basefarm.com',
+        //    'replyTo' => 'noreply@basefarm.com',
+        //    'returnPath' => 'noreply@basefarm.com'
+        //];
+
+        $di->params['Basefarm\Toolbox\Services\Marval'] += [
+            'enabled' => true,
+            'retries' => 2,
+            'sleepAfter' => 1
+        ];
+
+        //$di->params['Basefarm\Toolbox\Services\MarvalAD'] += [
+        //    'server' => '',
+        //    'bind_dn' => '',
+        //    'bind_pw' => ''
+        //];
+
+        $di->params['Basefarm\Toolbox\Services\MarvalSQL'] = [
+            'enabled' => true,
+            'servername' => 'bf-msms-sql-c01.stage-ad.basefarm.com',
+            'username' => 'bf-toolbox',
+            'password' => '',
+            'database' => 'marvalstage'
+        ];
+
+        $di->params['Basefarm\Toolbox\Services\MarvalAuditSQL'] = [
+            'enabled' => true,
+            'servername' => 'bf-msms-sql-c01.stage-ad.basefarm.com',
+            'username' => 'bf-toolbox',
+            'password' => '',
+            'database' => 'marvalauditstage'
+        ];
+
+        $di->params['Basefarm\Toolbox\Services\DWHdamcmdb'] = [
+            'enabled' => true,
+            'servername' => 'bin-d-dwhdev01.ad.basefarm.com',
+            'username' => 'bf-toolbox',
+            'password' => '',
+            'database' => 'damcmdb'
+                ];
+
+        $di->params['Basefarm\Toolbox\Services\DWHbfdvh'] = [
+            'enabled' => true,
+            'servername' => 'bin-d-dwhdev01.ad.basefarm.com',
+            'username' => 'bf-toolbox',
+            'password' => '',
+            'database' => 'bfdvh'
+                ];
+
+        $di->params['Basefarm\Toolbox\Services\BFaway'] = [
+            'enabled' => true,
+            'servername' => 'bin-p-sqlc01w01.ad.basefarm.com',
+            'username' => 'bf-toolbox',
+            'password' => '',
+            'database' => 'CurrentSW'
+                ];
+
+        $di->params['Basefarm\Toolbox\Services\MySQL'] = [
+            'host' => 'localhost',
+            'username' => 'tdev',
+            'password' => '',
+            'dbname' => 'tdev',
+            'port' => 3306,
+            'socket' => '/var/lib/mysql/mysql.sock'
+        ];
+
+        $di->params['Basefarm\Toolbox\Services\Primo'] = [
+            'url' => 'https://d3ws.osl.basefarm.net',
+            'http_options' => [
+                'keepalive' => true,
+                'sslcafile' => '/etc/ssl/certs/ca-bundle.crt',
+            ]
+        ];
+
+        $di->params['Basefarm\Toolbox\Services\SMSClient\Eurobate'] = [
+            'url' => 'https://cpa.eurobate.com/push.php',
+            'username' => 'basefarm',
+            'password' => '',
+            'http_options' => [
+                'keepalive' => true,
+                'sslcafile' => '/etc/ssl/certs/ca-bundle.crt'
+            ]
+        ];
+
+        $di->params['Basefarm\Toolbox\Services\SMSClient\Netcom'] = [
+            'url' => 'https://smsbedriftapi.telia.no/sms/send',
+            'username' => 'basefarm2010',
+            'password' => '',
+            'http_options' => [
+                'keepalive' => true,
+                'sslcafile' => '/etc/ssl/certs/ca-bundle.crt'
+            ]
+        ];
+
+        $di->params['Basefarm\Toolbox\Services\SMSClient\Zinek'] = [
+            'url' => 'http://zinek.net:8080/SMSWebService/SMSservlet',
+            'username' => 'basefarm',
+            'password' => '',
+            'bulk_url' => 'http://zinek.net:8080/mexws/http-api',
+            'bulk_username' => 'basefarm',
+            'bulk_password' => '',
+            'http_options' => [
+                'keepalive' => true
+            ]
+        ];
+
+        $di->params['Basefarm\Toolbox\Services\SMS'] = [
+            'enabled' => true,
+            'fromAlpha' => '47:Basefarm',
+            'fromNumeric' => '004795139350',
+            'messagePrefix' => 'Basefarm: ',
+            'operatorOrder' => [
+                'eurobate',
+                'netcom',
+                'zinek',
+            ],
+            'operators' => [
+                'eurobate' => $di->newInstance('Basefarm\Toolbox\Services\SMSClient\Eurobate'),
+                'netcom' => $di->newInstance('Basefarm\Toolbox\Services\SMSClient\Netcom'),
+                'zinek' => $di->newInstance('Basefarm\Toolbox\Services\SMSClient\Zinek'),
+            ]
+        ];
+    }
+
+    protected function defineSMSTools(Container $di)
+    {
+        $di->params['Basefarm\Toolbox\Modules\smstools\Model\SetSMS'] = [
+            'special_numbers' => [
+                'support-nydalen' => '4745239850',
+                'support-osl3' => '4745242733',
+                'ams-alert' => '31653532824',
+            ],
+            'realms' => [
+                'osl',
+                'sth',
+                'ams',
+                'im',
+            ],
+            'realm_names' => [
+                'im' => 'Incident Manager',
+            ],
+            'realm_combinations' => [
+                'osl+sth+ams' => 'osl + sth + ams',
+                'osl+sth' => 'osl + sth',
+               'osl+ams' => 'osl + ams',
+            ],
+        ];
+    }
+}

@@ -1,0 +1,33 @@
+---
+  - name: Restart nginx
+    service: name=nginx state=restarted
+
+  - name: Start nginx
+    service: name=nginx state=started
+
+  - name: Stop nginx
+    service: name=nginx state=stopped
+
+
+  - name: Restart nginx ldap auth
+    service: name={{ nginx_ldap_auth }} state=restarted
+
+  - name: Start nginx ldap auth
+    service: name={{ nginx_ldap_auth }} state=started
+
+  - name: Stop nginx ldap auth
+    service: name={{ nginx_ldap_auth }} state=stopped
+
+
+  - name: Restart nginx ldap backend app
+    service: name={{ nginx_ldap_backend_app }} state=restarted
+
+  - name: Start nginx ldap backend app
+    service: name={{ nginx_ldap_backend_app }} state=started
+
+  - name: Stop nginx ldap backend app
+    service: name={{ nginx_ldap_backend_app }} state=stopped
+
+
+  - name: Reload daemon
+    command: systemctl daemon-reload

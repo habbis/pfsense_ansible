@@ -1,0 +1,70 @@
+---
+  - name: Check remi repo module
+    command:
+      warn: no
+      argv:
+        - /usr/bin/dnf
+        - module
+        - list
+        - --installed
+        - php:remi-7.4
+    register: php_module
+    changed_when: php_module.rc == 1
+    failed_when: php_module.rc > 1
+
+  - name: Enable remi module
+    block:
+      - name: Reset dnf module
+        command:
+          warn: no
+          argv:
+            - /usr/bin/dnf
+            - module
+            - reset
+            - php
+            - -y
+      - name: Install remi module
+        command:
+          warn: no
+          argv:
+            - /usr/bin/dnf
+            - module
+            - install
+            - php:remi-7.4
+            - -y
+    when: php_module.changed
+
+  - name: Install modules
+    yum:
+      name: "{{ pkgs }}"
+    vars:
+      pkgs:
+        - php-ldap
+        - php-mbstring
+        #- php-mcrypt
+        - php-mysqlnd
+        - php-pdo
+        - php-pear
+        - php-process
+        - php-soap
+        - php-xml
+        - cyrus-sasl
+        - cyrus-sasl-md5
+
+  - name: Install PHP umask
+    copy:
+      src: roles/php/templates/umask.conf
+      dest: /etc/systemd/system/php-fpm.service.d/umask.conf
+    notify:
+      - Restart php
+
+  - name: Fix file permissions
+    file:
+      path: /var/lib/php/session
+      state: directory
+      recurse: yes
+      owner: nginx
+      group: nginx
+    notify:
+      - Restart php
+

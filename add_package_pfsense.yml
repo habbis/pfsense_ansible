@@ -1,0 +1,14 @@
+---
+ - hosts: larsen
+   gather_facts: no
+   remote_user: root
+   #remote_user: root
+   #become: yes
+   #become_method: sudo
+
+   tasks:
+   - name: "Install packages"
+     package:
+       name:
+         - pfSense-pkg-sudo
+       state: present

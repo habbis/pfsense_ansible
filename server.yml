@@ -1,0 +1,16 @@
+---
+  - name: Set up webserver
+    hosts: web
+
+    become: yes
+    roles:
+      - repo
+      - nginx
+      - php
+
+  - name: Set up database
+    hosts: db
+
+    become: yes
+    roles:
+      - mysql

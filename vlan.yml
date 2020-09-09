@@ -1,0 +1,17 @@
+---
+- hosts: larsen
+  gather_facts: no
+  remote_user: root
+  #remote_user: root
+  #become: yes
+  #become_method: sudo
+  tasks:
+
+  - name: Add vlan01
+    pfsense_vlan:
+      interface: "{{ interface_lan }}"
+      vlan_id: "{{ vlan_id01 }}"
+      descr: "{{ vlan_name01 }}"
+      priority: 0
+      state: present
+    when: create_vlan01

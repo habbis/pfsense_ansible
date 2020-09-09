@@ -1,0 +1,16 @@
+---
+  - name: set up pfsense
+    gather_facts: no
+    hosts: larsen
+    remote_user: root
+    #remote_user: user
+    #become: yes
+    #become_method: sudo
+    roles:
+      #- vlan
+      #- interface
+      #- existing_alias
+      - rule
+      #- new_alias
+      #- gateway
+      #- route

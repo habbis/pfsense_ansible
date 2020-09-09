@@ -1,0 +1,62 @@
+---
+  - name: BF proxy - Set
+    lineinfile:
+      path: /etc/yum.conf
+      line: proxy={{ proxy_url }}
+
+  - name: EPEL - Install
+    yum:
+      name: epel-release
+    environment:
+      http_proxy: "{{ proxy_url }}"
+      https_proxy: "{{ proxy_url }}"
+
+  - name: Remi Repo - Install
+    package:
+      name: "{{ item }}"
+      state: present
+    loop:
+      - https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+    environment:
+      http_proxy: "{{ proxy_url }}"
+      https_proxy: "{{ proxy_url }}"
+
+  - name: Install required packages
+    yum:
+      name: "{{ pkgs }}"
+    vars:
+      pkgs:
+        - git
+        - nodejs
+        - npm
+
+  - name: Copy over composer install script
+    template:
+      src: "composer.sh.j2"
+      dest: "/root/composer.sh"
+      owner: root
+      group: root
+      mode: +x
+
+  - name: Install composer
+    shell: "/root/composer.sh"
+    environment:
+      http_proxy: "{{ proxy_url }}"
+      https_proxy: "{{ proxy_url }}"
+
+  - name: Remove composer install script
+    file:
+      dest: "/root/composer.sh"
+      state: absent
+
+  - name: Install bower
+    npm:
+      name: bower
+      global: yes
+    environment:
+      http_proxy: "{{ proxy_url }}"
+      https_proxy: "{{ proxy_url }}"
+
+  # Change this so it's enabled and allows changes to site instead
+  - name: Disable SELinux
+    command: setenforce 0

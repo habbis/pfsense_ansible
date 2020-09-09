@@ -1,0 +1,32 @@
+---
+  - name: Reload nginx
+    service: name=nginx state=reloaded
+
+  - name: Restart nginx
+    service: name=nginx state=restarted
+
+  - name: Start nginx
+    service: name=nginx state=started
+
+  - name: Stop nginx
+    service: name=nginx state=stopped
+
+
+  - name: Restart nginx ldap auth
+    service: name=nginx-ldap-auth state=restarted
+
+  - name: Start nginx ldap auth
+    service: name=nginx-ldap-auth state=started
+
+  - name: Stop nginx ldap auth
+    service: name=nginx-ldap-auth state=stopped
+
+
+  - name: Restart nginx ldap backend app
+    service: name=nginx-ldap-backend-app state=restarted
+
+  - name: Start nginx ldap backend app
+    service: name=nginx-ldap-backend-app state=started
+
+  - name: Stop nginx ldap backend app
+    service: name=nginx-ldap-backend-app state=stopped

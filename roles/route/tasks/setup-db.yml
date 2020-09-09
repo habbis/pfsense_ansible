@@ -1,0 +1,33 @@
+---
+  - name: Create database
+    mysql_db:
+      name: "tdev"
+      collation: "utf8mb4_0900_ai_ci"
+      encoding: "utf8mb4"
+      state: "present"
+
+  # remeber to update the password
+  - name: Create user and give priviliges
+    mysql_user: 
+      name: tdev
+      host: "{{ item }}" 
+      password: fart
+      priv: "tdev.*:ALL,GRANT"
+    with_items:
+      - "{{ ansible_hostname }}"
+      - 127.0.0.1
+      - ::1
+      - localhost 
+
+ # remember to update password
+  - name: Update config
+    template:
+      src: my.cnf
+      dest: "/home/{{ username }}/.my.cnf"
+      owner: "{{ username }}"
+      group: root
+
+  - name: Install database
+    command: "/var/www/{{ sitename }}/cli/console.php mysql install"
+    become: yes
+    become_user: "{{ username }}"

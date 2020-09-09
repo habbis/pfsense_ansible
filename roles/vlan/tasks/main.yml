@@ -1,0 +1,242 @@
+---
+  - name: Add vlan01
+    pfsense_vlan:
+      interface: "{{ interface_lan }}"
+      vlan_id: "{{ vlan_id01 }}"
+      descr: "{{ vlan_name01 }}"
+      priority: 0
+      state: present
+    when: create_vlan01
+
+  - name: Add vlan02
+    pfsense_vlan:
+      interface: "{{ interface_lan }}"
+      vlan_id: "{{ vlan_id02 }}"
+      descr: "{{ vlan_name02 }}"
+      priority: 0
+      state: present
+    when: create_vlan02
+
+  - name: Add vlan03
+    pfsense_vlan:
+      interface: "{{ interface_lan }}"
+      vlan_id: "{{ vlan_id03 }}"
+      descr: "{{ vlan_name03 }}"
+      priority: 0
+      state: present
+    when: create_vlan03
+
+
+  - name: Add vlan04
+    pfsense_vlan:
+      interface: "{{ interface_lan }}"
+      vlan_id: "{{ vlan_id04 }}"
+      descr: "{{ vlan_name04 }}"
+      priority: 0
+      state: present
+    when: create_vlan04
+
+  - name: Add vlan05
+    pfsense_vlan:
+      interface: "{{ interface_lan }}"
+      vlan_id: "{{ vlan_id05 }}"
+      descr: "{{ vlan_name05 }}"
+      priority: 0
+      state: present
+    when: create_vlan05
+
+  - name: Add vlan06
+    pfsense_vlan:
+      interface: "{{ interface_lan }}"
+      vlan_id: "{{ vlan_id06 }}"
+      descr: "{{ vlan_name06 }}"
+      priority: 0
+      state: present
+    when: create_vlan06
+
+  - name: Add vlan07
+    pfsense_vlan:
+      interface: "{{ interface_lan }}"
+      vlan_id: "{{ vlan_id07 }}"
+      descr: "{{ vlan_name07 }}"
+      priority: 0
+      state: present
+    when: create_vlan07
+
+  - name: Add vlan08
+    pfsense_vlan:
+      interface: "{{ interface_lan }}"
+      vlan_id: "{{ vlan_id08 }}"
+      descr: "{{ vlan_name08 }}"
+      priority: 0
+      state: present
+    when: create_vlan08
+
+  - name: Add vlan09
+    pfsense_vlan:
+      interface: "{{ interface_lan }}"
+      vlan_id: "{{ vlan_id09 }}"
+      descr: "{{ vlan_name09 }}"
+      priority: 0
+      state: present
+    when: create_vlan09
+
+  - name: Add vlan10
+    pfsense_vlan:
+      interface: "{{ interface_lan }}"
+      vlan_id: "{{ vlan_id10 }}"
+      descr: "{{ vlan_name10 }}"
+      priority: 0
+      state: present
+    when: create_vlan10
+
+  - name: Add vlan11
+    pfsense_vlan:
+      interface: "{{ interface_lan }}"
+      vlan_id: "{{ vlan_id11 }}"
+      descr: "{{ vlan_name11 }}"
+      priority: 0
+      state: present
+    when: create_vlan11
+
+  - name: Add vlan12
+    pfsense_vlan:
+      interface: "{{ interface_lan }}"
+      vlan_id: "{{ vlan_id12 }}"
+      descr: "{{ vlan_name12 }}"
+      priority: 0
+      state: present
+    when: create_vlan12
+
+  - name: Add vlan13
+    pfsense_vlan:
+      interface: "{{ interface_lan }}"
+      vlan_id: "{{ vlan_id13 }}"
+      descr: "{{ vlan_name13 }}"
+      priority: 0
+      state: present
+    when: create_vlan13
+
+
+  - name: Add vlan14
+    pfsense_vlan:
+      interface: "{{ interface_lan }}"
+      vlan_id: "{{ vlan_id14 }}"
+      descr: "{{ vlan_name14 }}"
+      priority: 0
+      state: present
+    when: create_vlan14
+
+
+  - name: Add vlan15
+    pfsense_vlan:
+      interface: "{{ interface_lan }}"
+      vlan_id: "{{ vlan_id15 }}"
+      descr: "{{ vlan_name15 }}"
+      priority: 0
+      state: present
+    when: create_vlan15
+
+  - name: Add vlan16
+    pfsense_vlan:
+      interface: "{{ interface_lan }}"
+      vlan_id: "{{ vlan_id16 }}"
+      descr: "{{ vlan_name16 }}"
+      priority: 0
+      state: present
+    when: create_vlan16
+
+
+  - name: Add vlan17
+    pfsense_vlan:
+      interface: "{{ interface_lan }}"
+      vlan_id: "{{ vlan_id17 }}"
+      descr: "{{ vlan_name17 }}"
+      priority: 0
+      state: present
+    when: create_vlan17
+
+
+  - name: Add vlan18
+    pfsense_vlan:
+      interface: "{{ interface_lan }}"
+      vlan_id: "{{ vlan_id18 }}"
+      descr: "{{ vlan_name18 }}"
+      priority: 0
+      state: present
+    when: create_vlan18
+
+  - name: Add vlan19
+    pfsense_vlan:
+      interface: "{{ interface_lan }}"
+      vlan_id: "{{ vlan_id19 }}"
+      descr: "{{ vlan_name19 }}"
+      priority: 0
+      state: present
+    when: create_vlan19
+
+  - name: Add vlan20
+    pfsense_vlan:
+      interface: "{{ interface_lan }}"
+      vlan_id: "{{ vlan_id20 }}"
+      descr: "{{ vlan_name20 }}"
+      priority: 0
+      state: present
+    when: create_vlan20
+
+
+  - name: Add vlan21
+    pfsense_vlan:
+      interface: "{{ interface_lan }}"
+      vlan_id: "{{ vlan_id21 }}"
+      descr: "{{ vlan_name21 }}"
+      priority: 0
+      state: present
+    when: create_vlan21
+
+
+  - name: Add vlan22
+    pfsense_vlan:
+      interface: "{{ interface_lan }}"
+      vlan_id: "{{ vlan_id22 }}"
+      descr: "{{ vlan_name22 }}"
+      priority: 0
+      state: present
+    when: create_vlan22
+
+
+  - name: Add vlan23
+    pfsense_vlan:
+      interface: "{{ interface_lan }}"
+      vlan_id: "{{ vlan_id23 }}"
+      descr: "{{ vlan_name23 }}"
+      priority: 0
+      state: present
+    when: create_vlan23
+
+  - name: Add vlan24
+    pfsense_vlan:
+      interface: "{{ interface_lan }}"
+      vlan_id: "{{ vlan_id24 }}"
+      descr: "{{ vlan_name24 }}"
+      priority: 0
+      state: present
+    when: create_vlan24
+
+  - name: Add vlan25
+    pfsense_vlan:
+      interface: "{{ interface_lan }}"
+      vlan_id: "{{ vlan_id25 }}"
+      descr: "{{ vlan_name25 }}"
+      priority: 0
+      state: present
+    when: create_vlan25
+
+  - name: Add vlan26
+    pfsense_vlan:
+      interface: "{{ interface_lan }}"
+      vlan_id: "{{ vlan_id26 }}"
+      descr: "{{ vlan_name26 }}"
+      priority: 0
+      state: present
+    when: create_vlan26

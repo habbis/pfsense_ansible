@@ -1,0 +1,15 @@
+[Unit]
+Description=NGINX LDAP AUTH backend app
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /etc/nginx/ldap/{{ nginx_ldap_backend_app }}.py
+WorkingDirectory=/etc/nginx/ldap
+Type=simple
+User=daemon
+Group=daemon
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

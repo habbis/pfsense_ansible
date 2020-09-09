@@ -1,0 +1,7 @@
+---
+  - name: Add adservers alias
+    pfsense_alias:
+      name: lan_block
+      type: network
+      address: "{{ lan_block }}"
+      state: present

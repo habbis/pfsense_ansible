@@ -1,0 +1,37 @@
+ipsec_tunnels:
+  fully_connected_vpn:
+    iketype: ikev2
+    interface: wan
+    myid_type: keyid tag
+    peerid_type: keyid tag
+    authentication_method: pre_shared_key
+    preshared_key: HHmWGzbeAtyE8f2E
+    lifetime: 43200
+    mode: main
+    pfsenses:
+      pf_1:
+        sharing: 192.168.1.0/24 172.16.1.0/24
+        remote_gateway: pf1.acme.com
+        myid_data: pf_1_id
+      pf_2:
+        sharing: 192.168.2.0/24 172.16.2.0/24
+        remote_gateway: pf2.acme.com
+        myid_data: pf_2_id
+      pf_3:
+        sharing: 192.168.3.0/24 172.16.3.0/24 10.3.3.0/24
+        remote_gateway: pf3.acme.com
+        myid_data: pf_3_id
+    phase1:
+      encryptions:
+        aes128gcm: 128
+      hashes: sha256
+      dhgroup: 14
+    phase2:
+      encryptions:
+        aes128gcm: 128
+      hashes: sha256
+
+      # misc
+      lifetime: 7200
+      pfsgroup: '14'
+      mode: tunnel

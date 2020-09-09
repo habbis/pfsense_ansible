@@ -1,0 +1,280 @@
+---
+  - name: Add interface vlan01
+    pfsense_interface:
+      descr: "{{ vlan_name01 }}"
+      interface: "{{ interface_lan }}.{{ vlan_id01 }}"
+      ipv4_type: static
+      #ipv4_address:  10.1.2.1
+      ipv4_address: "{{ ipv4_address_vlan01 }}"
+      enable: True
+      state: present
+    when: create_interface01
+
+  - name: Add interface vlan02
+    pfsense_interface:
+      descr: "{{ vlan_name02 }}"
+      interface: "{{ interface_lan }}.{{ vlan_id02 }}"
+      ipv4_type: static
+      ipv4_address: "{{ ipv4_address_vlan02 }}" 
+     # ipv4_address:  10.2.2.1
+      enable: True
+      state: present
+    when: create_interface02
+
+
+  - name: Add interface vlan03
+    pfsense_interface:
+      descr: "{{ vlan_name03 }}"
+      interface: "{{ interface_lan }}.{{ vlan_id03 }}"
+      ipv4_type: static
+      ipv4_address:  10.3.2.1
+      enable: True
+      state: present
+    when: create_interface03
+
+
+  - name: Add interface vlan04
+    pfsense_interface:
+      descr: "{{ vlan_name04 }}"
+      interface: "{{ interface_lan }}.{{ vlan_id04 }}"
+      ipv4_type: static
+      ipv4_address:  "{{ ipv4_address_vlan04 }}"
+      enable: True
+      state: present
+    when: create_interface04
+
+
+  - name: Add interface vlan05
+    pfsense_interface:
+      descr: "{{ vlan_name05 }}"
+      interface: "{{ interface_lan }}.{{ vlan_id05 }}"
+      ipv4_type: static
+      ipv4_address:  "{{ ipv4_address_vlan05 }}"
+      enable: True
+      state: present
+    when: create_interface05
+
+
+  - name: Add interface vlan06
+    pfsense_interface:
+      descr: "{{ vlan_name06 }}"
+      interface: "{{ interface_lan }}.{{ vlan_id06 }}"
+      ipv4_type: static
+      ipv4_address:  "{{ ipv4_address_vlan06 }}"
+      enable: True
+      state: present
+    when: create_interface06
+
+
+  - name: Add interface vlan07
+    pfsense_interface:
+      descr: "{{ vlan_name07 }}"
+      interface: "{{ interface_lan }}.{{ vlan_id07 }}"
+      ipv4_type: static
+      ipv4_address:  "{{ ipv4_address_vlan07 }}"
+      enable: True
+      state: present
+    when: create_interface07
+
+
+  - name: Add interface vlan08
+    pfsense_interface:
+      descr: "{{ vlan_name08}}"
+      interface: "{{ interface_lan }}.{{ vlan_id08 }}"
+      ipv4_type: static
+      ipv4_address:  "{{ ipv4_address_vlan08 }}"
+      enable: True
+      state: present
+    when: create_interface08
+
+
+  - name: Add interface vlan09
+    pfsense_interface:
+      descr: "{{ vlan_name09 }}"
+      interface: "{{ interface_lan }}.{{ vlan_id09 }}"
+      ipv4_type: static
+      ipv4_address:  "{{ ipv4_address_vlan09 }}"
+      enable: True
+      state: present
+    when: create_interface09
+
+  - name: Add interface vlan10
+    pfsense_interface:
+      descr: "{{ vlan_name10 }}"
+      interface: "{{ interface_lan }}.{{ vlan_id10 }}"
+      ipv4_type: static
+      ipv4_address:  "{{ ipv4_address_vlan10 }}"
+      enable: True
+      state: present
+    when: create_interface10
+
+  - name: Add interface vlan11
+    pfsense_interface:
+      descr: "{{ vlan_name11 }}"
+      interface: "{{ interface_lan }}.{{ vlan_id11 }}"
+      ipv4_type: static
+      ipv4_address:  "{{ ipv4_address_vlan11 }}"
+      enable: True
+      state: present
+    when: create_interface11
+
+  - name: Add interface vlan12
+    pfsense_interface:
+      descr: "{{ vlan_name12 }}"
+      interface: "{{ interface_lan }}.{{ vlan_id12 }}"
+      ipv4_type: static
+      ipv4_address:  "{{ ipv4_address_vlan12 }}"
+      enable: True
+      state: present
+    when: create_interface12
+
+
+  - name: Add interface vlan13
+    pfsense_interface:
+      descr: "{{ vlan_name13 }}"
+      interface: "{{ interface_lan }}.{{ vlan_id13 }}"
+      ipv4_type: static
+      ipv4_address:  "{{ ipv4_address_vlan13 }}"
+      enable: True
+      state: present
+    when: create_interface13
+
+
+  - name: Add interface vlan14
+    pfsense_interface:
+      descr: "{{ vlan_name14 }}"
+      interface: "{{ interface_lan }}.{{ vlan_id14 }}"
+      ipv4_type: static
+      ipv4_address:  "{{ ipv4_address_vlan14 }}"
+      enable: True
+      state: present
+    when: create_interface14
+
+
+  - name: Add interface vlan15
+    pfsense_interface:
+      descr: "{{ vlan_name15 }}"
+      interface: "{{ interface_lan }}.{{ vlan_id15 }}"
+      ipv4_type: static
+      ipv4_address:  "{{ ipv4_address_vlan15 }}"
+      enable: True
+      state: present
+    when: create_interface15
+
+
+  - name: Add interface vlan16
+    pfsense_interface:
+      descr: "{{ vlan_name16 }}"
+      interface: "{{ interface_lan }}.{{ vlan_id16}}"
+      ipv4_type: static
+      ipv4_address:  "{{ ipv4_address_vlan16 }}"
+      enable: True
+      state: present
+    when: create_interface16
+
+
+  - name: Add interface vlan17
+    pfsense_interface:
+      descr: "{{ vlan_name17 }}"
+      interface: "{{ interface_lan }}.{{ vlan_id17 }}"
+      ipv4_type: static
+      ipv4_address:  "{{ ipv4_address_vlan17 }}"
+      enable: True
+      state: present
+    when: create_interface17
+
+
+  - name: Add interface vlan18
+    pfsense_interface:
+      descr: "{{ vlan_name18 }}"
+      interface: "{{ interface_lan }}.{{ vlan_id18 }}"
+      ipv4_type: static
+      ipv4_address:  "{{ ipv4_address_vlan18 }}"
+      enable: True
+      state: present
+    when: create_interface18
+
+
+  - name: Add interface vlan19
+    pfsense_interface:
+      descr: "{{ vlan_name19 }}"
+      interface: "{{ interface_lan }}.{{ vlan_id19 }}"
+      ipv4_type: static
+      ipv4_address:  "{{ ipv4_address_vlan19 }}"
+      enable: True
+      state: present
+    when: create_interface19
+
+
+  - name: Add interface vlan20
+    pfsense_interface:
+      descr: "{{ vlan_name20 }}"
+      interface: "{{ interface_lan }}.{{ vlan_id20 }}"
+      ipv4_type: static
+      ipv4_address:  "{{ ipv4_address_vlan20 }}"
+      enable: True
+      state: present
+    when: create_interface20
+
+  - name: Add interface vlan21
+    pfsense_interface:
+      descr: "{{ vlan_name21 }}"
+      interface: "{{ interface_lan }}.{{ vlan_id21 }}"
+      ipv4_type: static
+      ipv4_address:  "{{ ipv4_address_vlan21 }}"
+      enable: True
+      state: present
+    when: create_interface21
+
+
+  - name: Add interface vlan22
+    pfsense_interface:
+      descr: "{{ vlan_name22 }}"
+      interface: "{{ interface_lan }}.{{ vlan_id22 }}"
+      ipv4_type: static
+      ipv4_address:  "{{ ipv4_address_vlan22 }}"
+      enable: True
+      state: present
+    when: create_interface22
+
+
+  - name: Add interface vlan23
+    pfsense_interface:
+      descr: "{{ vlan_name23 }}"
+      interface: "{{ interface_lan }}.{{ vlan_id23 }}"
+      ipv4_type: static
+      ipv4_address:  "{{ ipv4_address_vlan23 }}"
+      enable: True
+      state: present
+    when: create_interface23
+
+  - name: Add interface vlan24
+    pfsense_interface:
+      descr: "{{ vlan_name24 }}"
+      interface: "{{ interface_lan }}.{{ vlan_id24 }}"
+      ipv4_type: static
+      ipv4_address:  "{{ ipv4_address_vlan24 }}"
+      enable: True
+      state: present
+    when: create_interface24
+
+
+  - name: Add interface vlan25
+    pfsense_interface:
+      descr: "{{ vlan_name25 }}"
+      interface: "{{ interface_lan }}.{{ vlan_id25 }}"
+      ipv4_type: static
+      ipv4_address:  "{{ ipv4_address_vlan25 }}"
+      enable: True
+      state: present
+    when: create_interface25
+
+  - name: Add interface vlan26
+    pfsense_interface:
+      descr: "{{ vlan_name26 }}"
+      interface: "{{ interface_lan }}.{{ vlan_id26 }}"
+      ipv4_type: static
+      ipv4_address:  "{{ ipv4_address_vlan26 }}"
+      enable: True
+      state: present
+    when: create_interface25

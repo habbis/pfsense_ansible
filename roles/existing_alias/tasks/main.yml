@@ -1,0 +1,273 @@
+---
+  - name: Add adservers alias lan_block
+    pfsense_alias:
+      name: lan_block
+      type: network
+      address: "{{ lan_block }}"
+      state: present
+
+
+  - name: Add adservers alias virt_block
+    pfsense_alias:
+      name: virt_block
+      type: network
+      address: "{{ virt_block }}"
+      state: present
+
+
+  - name: Add adservers alias prod_block
+    pfsense_alias:
+      name: prod_block
+      type: network
+      address: "{{ prod_block }}"
+      state: present
+
+
+  - name: Add adservers alias preprod_block
+    pfsense_alias:
+      name: preprod_block
+      type: network
+      address: "{{ preprod_block }}"
+      state: present
+
+
+  - name: Add adservers alias test_block
+    pfsense_alias:
+      name: test_block
+      type: network
+      address: "{{ test_block }}"
+      state: present
+
+
+  - name: Add adservers alias ilo_block
+    pfsense_alias:
+      name: ilo_block
+      type: network
+      address: "{{ ilo_block }}"
+      state: present
+  
+  - name: Add adservers alias apinjic_block
+    pfsense_alias:
+      name: apinjic_block
+      type: network
+      address: "{{ apinjic_block }}"
+      state: present
+
+  - name: Add adservers alias akvanvig_block
+    pfsense_alias:
+      name: akvanvig_block
+      type: network
+      address: "{{ akvanvig_block }}"
+      state: present
+
+
+  - name: Add adservers alias home_block
+    pfsense_alias:
+      name: home_block
+      type: network
+      address: "{{ home_block }}"
+      state: present
+
+
+  - name: Add adservers alias ipa_block
+    pfsense_alias:
+      name: ipa_block
+      type: network
+      address: "{{ ipa_block }}"
+      state: present
+
+
+  - name: Add adservers alias k8s_block
+    pfsense_alias:
+      name: k8s_block
+      type: network
+      address: "{{ k8s_block }}"
+      state: present
+
+
+  - name: Add adservers alias postgres_block
+    pfsense_alias:
+      name: postgres_block
+      type: network
+      address: "{{ postgres_block }}"
+      state: present
+
+
+  - name: Add adservers alias mysql_block
+    pfsense_alias:
+      name: mysql_block
+      type: network
+      address: "{{ mysql_block }}"
+      state: present
+
+
+  - name: Add adservers alias nextcloud_block
+    pfsense_alias:
+      name: nextcloud_block
+      type: network
+      address: "{{ nextcloud_block }}"
+      state: present
+  
+  - name: Add adservers alias media_block
+    pfsense_alias:
+      name: media_block
+      type: network
+      address: "{{ media_block }}"
+      state: present
+
+  - name: Add adservers alias k3s_block
+    pfsense_alias:
+      name: k3s_block
+      type: network
+      address: "{{ k3s_block }}"
+      state: present
+
+
+  - name: Add adservers alias wikis_block
+    pfsense_alias:
+      name: wikis_block
+      type: network
+      address: "{{ lan_block }}"
+      state: present
+
+
+  - name: Add adservers alias
+    pfsense_alias:
+      name: lan_block
+      type: network
+      address: "{{ wikis_block }}"
+      state: present
+
+
+  - name: Add adservers alias wikis_block
+    pfsense_alias:
+      name: wikis_block
+      type: network
+      address: "{{ wikis_block }}"
+      state: present
+
+
+  - name: Add adservers alias wiki_block
+    pfsense_alias:
+      name: wiki_block
+      type: network
+      address: "{{ wiki_block }}"
+      state: present
+
+
+  - name: Add adservers alias wiki-db_block
+    pfsense_alias:
+      name: wiki-db_block
+      type: network
+      address: "{{ wiki-db_block }}"
+      state: present
+  
+  - name: Add adservers alias ansible_block
+    pfsense_alias:
+      name: ansible_block
+      type: network
+      address: "{{ ansible_block }}"
+      state: present
+
+
+  - name: Add adservers alias jenkins_block
+    pfsense_alias:
+      name: jenkins_block
+      type: network
+      address: "{{ jenkins_block }}"
+      state: present
+  
+  - name: Add adservers alias foreman_block
+    pfsense_alias:
+      name: foreman_block
+      type: network
+      address: "{{ foreman_block }}"
+      state: present
+
+
+  - name: Add adservers alias git_block
+    pfsense_alias:
+      name: git_block
+      type: network
+      address: "{{ git_block }}"
+      state: present
+
+
+  - name: Add adservers alias git-db_block
+    pfsense_alias:
+      name: git-db_block
+      type: network
+      address: "{{ git-db_block }}"
+      state: present
+  
+  - name: Add adservers alias mgmt_block
+    pfsense_alias:
+      name: mgmt_block
+      type: network
+      address: "{{ mgmt_block }}"
+      state: present
+
+
+  - name: Add adservers alias prodno_block
+    pfsense_alias:
+      name: prodno_block
+      type: network
+      address: "{{ prodno_block }}"
+      state: present
+  
+  - name: Add adservers alias foreman_block
+    pfsense_alias:
+      name: foreman_block
+      type: network
+      address: "{{ foreman_block }}"
+      state: present
+
+  - name: Add adservers alias ipa-prodno_block
+    pfsense_alias:
+      name: ipa-prodno_block
+      type: network
+      address: "{{ ipa-prodno_block }}"
+      state: present
+
+  - name: Add adservers backup_block
+    pfsense_alias:
+      name: backup_block
+      type: network
+      address: "{{ backup_block }}"
+      state: present
+
+  - name: Add adservers alias kubeproxy_block
+    pfsense_alias:
+      name: kubeproxy_block
+      type: network
+      address: "{{ kubeproxy_block }}"
+      state: present
+
+  - name: Add adservers alias repo_block
+    pfsense_alias:
+      name: repo_block
+      type: network
+      address: "{{ repo_block }}"
+      state: present
+
+  - name: Add adservers alias repo-db_block
+    pfsense_alias:
+      name: foreman_block
+      type: network
+      address: "{{ foreman_block }}"
+      state: present
+
+
+  - name: Add adservers alias squid_block
+    pfsense_alias:
+      name: squid_block
+      type: network
+      address: "{{ squid_block }}"
+      state: present
+
+  - name: Add adservers alias moncore_block
+    pfsense_alias:
+      name: moncore_block
+      type: network
+      address: "{{ moncore_block }}"
+      state: present
