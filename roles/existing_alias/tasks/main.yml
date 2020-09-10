@@ -147,6 +147,14 @@
       state: present
 
 
+  - name: Add adservers alias wikis_db_block
+    pfsense_alias:
+      name: wikis_db_block
+      type: network
+      address: "{{ wikis_db_block }}"
+      state: present
+
+
   - name: Add adservers alias wiki_block
     pfsense_alias:
       name: wiki_block
@@ -155,11 +163,11 @@
       state: present
 
 
-  - name: Add adservers alias wiki-db_block
+  - name: Add adservers alias wiki_db_block
     pfsense_alias:
-      name: wiki-db_block
+      name: wiki_db_block
       type: network
-      address: "{{ wiki-db_block }}"
+      address: "{{ wiki_db_block }}"
       state: present
   
   - name: Add adservers alias ansible_block
@@ -193,11 +201,11 @@
       state: present
 
 
-  - name: Add adservers alias git-db_block
+  - name: Add adservers alias git_db_block
     pfsense_alias:
-      name: git-db_block
+      name: git_db_block
       type: network
-      address: "{{ git-db_block }}"
+      address: "{{ git_db_block }}"
       state: present
   
   - name: Add adservers alias mgmt_block
@@ -222,11 +230,11 @@
       address: "{{ foreman_block }}"
       state: present
 
-  - name: Add adservers alias ipa-prodno_block
+  - name: Add adservers alias ipa_prodno_block
     pfsense_alias:
-      name: ipa-prodno_block
+      name: ipa_prodno_block
       type: network
-      address: "{{ ipa-prodno_block }}"
+      address: "{{ ipa_prodno_block }}"
       state: present
 
   - name: Add adservers backup_block

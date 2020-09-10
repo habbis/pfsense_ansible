@@ -9,8 +9,8 @@
     roles:
       #- vlan
       #- interface
-      #- existing_alias
-      - rule
+      - existing_alias
+      #- rule
       #- new_alias
       #- gateway
       #- route
