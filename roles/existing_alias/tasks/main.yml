@@ -5,7 +5,7 @@
       type: network
       address: "{{ lan_block }}"
       state: present
-
+    when: create_vlan01
 
   - name: Add adservers alias virt_block
     pfsense_alias:
@@ -13,7 +13,7 @@
       type: network
       address: "{{ virt_block }}"
       state: present
-
+    when: create_vlan02
 
   - name: Add adservers alias prod_block
     pfsense_alias:
@@ -21,7 +21,7 @@
       type: network
       address: "{{ prod_block }}"
       state: present
-
+    when: create_vlan03
 
   - name: Add adservers alias preprod_block
     pfsense_alias:
@@ -29,7 +29,7 @@
       type: network
       address: "{{ preprod_block }}"
       state: present
-
+    when: create_vlan04
 
   - name: Add adservers alias test_block
     pfsense_alias:
@@ -37,7 +37,7 @@
       type: network
       address: "{{ test_block }}"
       state: present
-
+    when: create_vlan05
 
   - name: Add adservers alias ilo_block
     pfsense_alias:
@@ -45,13 +45,15 @@
       type: network
       address: "{{ ilo_block }}"
       state: present
-  
+    when: create_vlan06
+
   - name: Add adservers alias apinjic_block
     pfsense_alias:
       name: apinjic_block
       type: network
       address: "{{ apinjic_block }}"
       state: present
+    when: create_vlan07
 
   - name: Add adservers alias akvanvig_block
     pfsense_alias:
@@ -59,7 +61,7 @@
       type: network
       address: "{{ akvanvig_block }}"
       state: present
-
+    when: create_vlan08
 
   - name: Add adservers alias home_block
     pfsense_alias:
@@ -67,7 +69,7 @@
       type: network
       address: "{{ home_block }}"
       state: present
-
+    when: create_vlan09
 
   - name: Add adservers alias ipa_block
     pfsense_alias:
@@ -75,7 +77,7 @@
       type: network
       address: "{{ ipa_block }}"
       state: present
-
+    when: create_vlan10
 
   - name: Add adservers alias k8s_block
     pfsense_alias:
@@ -83,7 +85,7 @@
       type: network
       address: "{{ k8s_block }}"
       state: present
-
+    when: create_vlan11
 
   - name: Add adservers alias postgres_block
     pfsense_alias:
@@ -91,7 +93,7 @@
       type: network
       address: "{{ postgres_block }}"
       state: present
-
+    when: create_vlan12
 
   - name: Add adservers alias mysql_block
     pfsense_alias:
@@ -99,7 +101,7 @@
       type: network
       address: "{{ mysql_block }}"
       state: present
-
+    when: create_vlan13
 
   - name: Add adservers alias nextcloud_block
     pfsense_alias:
@@ -107,13 +109,15 @@
       type: network
       address: "{{ nextcloud_block }}"
       state: present
-  
+    when: create_vlan14
+
   - name: Add adservers alias media_block
     pfsense_alias:
       name: media_block
       type: network
       address: "{{ media_block }}"
       state: present
+    when: create_vlan15
 
   - name: Add adservers alias k3s_block
     pfsense_alias:
@@ -121,7 +125,7 @@
       type: network
       address: "{{ k3s_block }}"
       state: present
-
+    when: create_vlan16
 
   - name: Add adservers alias wikis_block
     pfsense_alias:
@@ -129,7 +133,7 @@
       type: network
       address: "{{ lan_block }}"
       state: present
-
+    when: create_vlan17
 
   - name: Add adservers alias
     pfsense_alias:
@@ -137,7 +141,7 @@
       type: network
       address: "{{ wikis_block }}"
       state: present
-
+    when: create_vlan18
 
   - name: Add adservers alias wikis_block
     pfsense_alias:
@@ -145,7 +149,7 @@
       type: network
       address: "{{ wikis_block }}"
       state: present
-
+    when: create_vlan19
 
   - name: Add adservers alias wikis_db_block
     pfsense_alias:
@@ -153,7 +157,7 @@
       type: network
       address: "{{ wikis_db_block }}"
       state: present
-
+    when: create_vlan20
 
   - name: Add adservers alias wiki_block
     pfsense_alias:
@@ -161,7 +165,7 @@
       type: network
       address: "{{ wiki_block }}"
       state: present
-
+    when: create_vlan21
 
   - name: Add adservers alias wiki_db_block
     pfsense_alias:
@@ -169,14 +173,15 @@
       type: network
       address: "{{ wiki_db_block }}"
       state: present
-  
+    when: create_vlan22
+
   - name: Add adservers alias ansible_block
     pfsense_alias:
       name: ansible_block
       type: network
       address: "{{ ansible_block }}"
       state: present
-
+    when: create_vlan23
 
   - name: Add adservers alias jenkins_block
     pfsense_alias:
@@ -184,14 +189,15 @@
       type: network
       address: "{{ jenkins_block }}"
       state: present
-  
+    when: create_vlan24
+
   - name: Add adservers alias foreman_block
     pfsense_alias:
       name: foreman_block
       type: network
       address: "{{ foreman_block }}"
       state: present
-
+    when: create_vlan25
 
   - name: Add adservers alias git_block
     pfsense_alias:
@@ -199,7 +205,7 @@
       type: network
       address: "{{ git_block }}"
       state: present
-
+    when: create_vlan26
 
   - name: Add adservers alias git_db_block
     pfsense_alias:
@@ -207,14 +213,15 @@
       type: network
       address: "{{ git_db_block }}"
       state: present
-  
+    when: create_vlan27
+
   - name: Add adservers alias mgmt_block
     pfsense_alias:
       name: mgmt_block
       type: network
       address: "{{ mgmt_block }}"
       state: present
-
+    when: create_vlan28
 
   - name: Add adservers alias prodno_block
     pfsense_alias:
@@ -222,13 +229,15 @@
       type: network
       address: "{{ prodno_block }}"
       state: present
-  
+    when: create_vlan29
+
   - name: Add adservers alias foreman_block
     pfsense_alias:
       name: foreman_block
       type: network
       address: "{{ foreman_block }}"
       state: present
+    when: create_vlan30
 
   - name: Add adservers alias ipa_prodno_block
     pfsense_alias:
@@ -236,6 +245,7 @@
       type: network
       address: "{{ ipa_prodno_block }}"
       state: present
+    when: create_vlan31
 
   - name: Add adservers backup_block
     pfsense_alias:
@@ -243,6 +253,7 @@
       type: network
       address: "{{ backup_block }}"
       state: present
+    when: create_vlan32
 
   - name: Add adservers alias kubeproxy_block
     pfsense_alias:
@@ -250,6 +261,7 @@
       type: network
       address: "{{ kubeproxy_block }}"
       state: present
+    when: create_vlan33
 
   - name: Add adservers alias repo_block
     pfsense_alias:
@@ -257,6 +269,7 @@
       type: network
       address: "{{ repo_block }}"
       state: present
+    when: create_vlan34
 
   - name: Add adservers alias repo-db_block
     pfsense_alias:
@@ -264,7 +277,7 @@
       type: network
       address: "{{ foreman_block }}"
       state: present
-
+    when: create_vlan35
 
   - name: Add adservers alias squid_block
     pfsense_alias:
@@ -272,6 +285,7 @@
       type: network
       address: "{{ squid_block }}"
       state: present
+    when: create_vlan36
 
   - name: Add adservers alias moncore_block
     pfsense_alias:
@@ -279,3 +293,40 @@
       type: network
       address: "{{ moncore_block }}"
       state: present
+    when: create_vlan37
+
+
+  - name: Add adservers alias fast_prod_block
+    pfsense_alias:
+      name: fast_prod_block
+      type: network
+      address: "{{ fast_prod_block }}"
+      state: present
+    when: create_vlan38
+
+
+  - name: Add adservers alias fast_preprod_block
+    pfsense_alias:
+      name: fast_preprod_block
+      type: network
+      address: "{{ fast_preprod_block }}"
+      state: present
+    when: create_vlan39
+
+
+  - name: Add adservers alias fast_test_block
+    pfsense_alias:
+      name: fast_test_block
+      type: network
+      address: "{{ fast_test_block }}"
+      state: present
+    when: create_vlan40
+
+
+  - name: Add adservers alias fast_proxy_block
+    pfsense_alias:
+      name: fast_proxy_block
+      type: network
+      address: "{{ fast_proxy_block }}"
+      state: present
+    when: create_vlan41
