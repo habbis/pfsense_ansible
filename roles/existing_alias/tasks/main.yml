@@ -330,3 +330,11 @@
       address: "{{ fast_proxy_block }}"
       state: present
     when: create_vlan41
+
+  - name: Add adservers alias repo_db_block
+    pfsense_alias:
+      name: repo_db_block
+      type: network
+      address: "{{ repo_db_block }}"
+      state: present
+    when: create_vlan42

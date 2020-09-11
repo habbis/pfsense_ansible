@@ -1,3 +1,15 @@
 ---
-  - include: install-php.yml
-
+  - name: "allow rule vlan01"
+    pfsense_rule:
+      name: 'allow rule to itself'
+      action: block
+      interface: "{{ vlan_name01 }}"
+      ipprotocol: inet
+      protocol: any
+      source: NET:ipa_vlan34
+      destination: NET:ipa_vlan34
+      #destination_port: ALIAS: "{{ alias01 }}"
+      destination_port: any
+      after: 'top'
+      state: present
+    when: create_vlan01
