@@ -3,7 +3,7 @@
 Here is the upstream [ansible-pfsense](https://github.com/opoplawski/ansible-pfsense) the only change is adding tasks so this modules works
 for me i had problems using ansible galaxy collections.
 
-- Ansible variables ansible found in  [here](group_vars/all)
+- Ansible variables ansible found in  [here](group_vars/all.json)
 
 - Task found [here](roles)
 
